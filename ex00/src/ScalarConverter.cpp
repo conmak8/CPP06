@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:35:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/18 16:57:51 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:04:27 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,41 @@ ScalarConverter &ScalarConverter::operator= (const ScalarConverter &src)
 
 ScalarConverter::~ScalarConverter () {};
 
-void ScalarConverter::convert(const std::sting &literal)
+//====================//
+bool isChar(const std::string &str)  // ? static and why?
+{
+	return (str.length() == 1 && std::isprint(str[0]) && !std::isdigit(str[0]));
+}
+
+bool isInt(const std::string &str)
+{
+	std::istringstream iss(str);  // diki tou vivliothiki??
+	int val;
+	return ((iss >> val) && (iss.eof()));
+}
+
+bool isFloat(const std::string &str)
+{
+	if (str == "-inff" || str == "+inff" || str == "nanf")  // ? Diki tour vivliothiki??
+		return true;
+	if (str.back() != 'f')
+		return false;
+	std::string numberPart = str.substr(0, str.length() - 1);
+	std::istringstream iss(numberPart);
+	float val;
+	return ((iss >> val) && iss.eof());
+}
+
+bool isDouble(const std::string &str)
+{
+	if (str == "-inf" || str == "+inf" || str == "nan")
+		return true;
+	std::istringstream iss(str);
+	double val;
+	return ((iss >> val) && (iss.eof()));
+}
+
+void ScalarConverter::convert(const std::string &literal)
 {
 	if (isChar(literal))
 	{
