@@ -6,16 +6,16 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:35:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/18 17:15:02 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:48:20 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iomanip> //setprecision
 #include <sstream> //istringstream
-// #include <limits> //numeric_limits  ? horis?
-// #include <cmath> //isnan
-// #include <cstdlib> //atoi, atof
+#include <limits> //numeric_limits 
+#include <cmath> //isnan
+#include <cstdlib> //atoi, atof
 
 
 
@@ -131,6 +131,7 @@ void ScalarConverter::convert(const std::string &literal)
 	else if (isDouble(literal))
 	{
 		double d = std::atof(literal.c_str());
+		// double d = std::stod(literal.c_str());
 		std::cout << "[Detected type: double]" << std::endl;
 		printConversions(d);
 	}
