@@ -6,11 +6,17 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:35:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/18 17:04:27 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:15:02 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <iomanip> //setprecision
+#include <sstream> //istringstream
+// #include <limits> //numeric_limits  ? horis?
+// #include <cmath> //isnan
+// #include <cstdlib> //atoi, atof
+
 
 
 //-------OCF----------//
@@ -60,6 +66,48 @@ bool isDouble(const std::string &str)
 	return ((iss >> val) && (iss.eof()));
 }
 
+void printConversions(double inputValue)
+{
+	// CHAR
+	std::cout << "char: ";
+	if (std::isnan(inputValue) || inputValue < 0 || inputValue > 127)
+		std::cout << "impossible";
+	else if (!std::isprint(static_cast<char>(inputValue)))
+		std::cout << "Non displayable";
+	else
+		std::cout << "'" << static_cast<char>(inputValue) << "'";
+	std::cout << std::endl;
+
+	// INT
+	std::cout << "int: ";
+	if (std::isnan(inputValue) || inputValue > std::numeric_limits<int>::max() || inputValue < std::numeric_limits<int>::min())
+		std::cout << "impossible";
+	else
+		std::cout << static_cast<int>(inputValue);
+	std::cout << std::endl;
+
+	// FLOAT
+	std::cout << "float: ";
+	if (std::isnan(inputValue))
+		std::cout << "nanf";
+	else if (inputValue > std::numeric_limits<float>::max() || inputValue < -std::numeric_limits<float>::max())
+		std::cout << "impossible";
+	else
+		std::cout << std::fixed << std::setprecision(1) << static_cast<float>(inputValue) << 'f';
+	std::cout << std::endl;
+
+	// DOUBLE
+	std::cout << "double: ";
+	if (std::isnan(inputValue))
+		std::cout << "nan";
+	else if (inputValue > std::numeric_limits<double>::max() || inputValue < -std::numeric_limits<double>::max())
+		std::cout << "impossible";
+	else
+		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(inputValue);
+	std::cout << std::endl;
+}
+
+
 void ScalarConverter::convert(const std::string &literal)
 {
 	if (isChar(literal))
@@ -72,7 +120,7 @@ void ScalarConverter::convert(const std::string &literal)
 	{
 		int i = std::atoi(literal.c_str());
 		std::cout << "[Detected type: int]" << std::endl;
-		printConvsersions(static_cast<double>(c));
+		printConversions(static_cast<double>(i));
 	}
 	else if (isFloat(literal))
 	{
@@ -83,11 +131,9 @@ void ScalarConverter::convert(const std::string &literal)
 	else if (isDouble(literal))
 	{
 		double d = std::atof(literal.c_str());
-		\cout << "[Detected type: double]" << std::endl;
+		std::cout << "[Detected type: double]" << std::endl;
 		printConversions(d);
 	}
 	else
 		std::cout << "❌ Unknow literal" << std::endl;
 }
-
-

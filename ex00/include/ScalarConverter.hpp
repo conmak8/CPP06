@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 09:45:19 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/18 09:57:15 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:12:53 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ private:
 		~ScalarConverter();										// * Destructor
 		//============Methods===========//
 public:
-		static void converter(const std::string &literal);
+		static void convert(const std::string &literal);
 };
 
 #endif // !SCALARCONVERTER_HPP
