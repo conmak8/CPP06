@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 13:45:36 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/19 13:53:25 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/19 14:15:52 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,4 @@ public:
 		static Data *deserialize(uintptr_t raw);
 };
 
-#endif // SERIALIZER_HPP
+#endif //!SERIALIZER_HPP
