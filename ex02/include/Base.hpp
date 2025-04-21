@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 11:23:36 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/21 11:24:43 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:53:01 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class Base
 {
 public:
-	virtual ~Base() {}
+	virtual ~Base();
 };
 
 #endif // !BASE_HPP
