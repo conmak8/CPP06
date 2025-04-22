@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 11:35:05 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/21 22:07:27 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/22 02:18:09 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 Base* generate()
 {
-	srand(time(nullptr));
+	// srand(time(nullptr)); i locate it for safety in main
 	int random = rand() % 3;
 	Base* base = nullptr;
 
