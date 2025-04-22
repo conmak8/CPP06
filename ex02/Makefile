@@ -1,5 +1,5 @@
 # Project Name
-NAME		=	$(BIN_DIR)/serialization
+NAME		=	$(BIN_DIR)/dynamicCast
 # Command-line arguments for run and valgrind
 ARGS		=
 
